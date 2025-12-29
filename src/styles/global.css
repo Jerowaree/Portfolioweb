@@ -6,7 +6,6 @@ html {
     scroll-behavior: auto !important;
 }
 
-/* Lenis essential styles */
 html.lenis,
 html.lenis body {
     height: auto;
@@ -32,7 +31,6 @@ html.lenis body {
     --font-sans: "Inter", sans-serif;
     --color-primary: #1fa3de;
     --color-secondary: #0ea5e9;
-    /* Supporting blue */
 }
 
 [data-theme="light"] {

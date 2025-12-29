@@ -18,14 +18,12 @@ import {
     SiOpenai
 } from 'react-icons/si';
 
-// Custom VS Code Icon since react-icons export might be unstable/named differently
 const VscodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
         <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.245.09L.46 7.41a.98.98 0 0 0-.01 1.43l9.8 8.49c-3.17 2.76-9.8 8.49-9.8 8.49a.98.98 0 0 0 .01 1.43l1.21 1.31c.363.39.957.4 1.245.09l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.444V3.944a1.5 1.5 0 0 0-.85-1.357z" />
     </svg>
 );
 
-// Define the stack data with icon components
 const stackData = [
     {
         title: "Frontend Development",

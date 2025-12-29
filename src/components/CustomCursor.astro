@@ -55,7 +55,6 @@
     });
 
     function animate() {
-        // Smoothly follow mouse
         dotX += (mouseX - dotX) * 0.2;
         dotY += (mouseY - dotY) * 0.2;
         ringX += (mouseX - ringX) * 0.15;
@@ -71,7 +70,6 @@
 
     animate();
 
-    // Interaction triggers
     const targets = document.querySelectorAll(
         'a, button, [role="button"], .magnetic-target',
     );
@@ -87,7 +85,6 @@
             ring?.classList.remove("active");
         });
 
-        // Magnetic effect
         target.addEventListener("mousemove", (e) => {
             const rect = target.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;

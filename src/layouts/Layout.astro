@@ -43,7 +43,6 @@ const { title, description = "David - Full Stack Developer in Training" } =
 		<script>
 			import Lenis from "lenis";
 
-			// Initialize Lenis
 			const lenis = new Lenis({
 				duration: 1.2,
 				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -51,7 +50,6 @@ const { title, description = "David - Full Stack Developer in Training" } =
 				infinite: false,
 			});
 
-			// Use requestAnimationFrame to update the scroll
 			function raf(time: number) {
 				lenis.raf(time);
 				requestAnimationFrame(raf);
@@ -59,7 +57,6 @@ const { title, description = "David - Full Stack Developer in Training" } =
 
 			requestAnimationFrame(raf);
 
-			// Optional: Bind Lenis to your links
 			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 				anchor.addEventListener("click", (e) => {
 					e.preventDefault();
@@ -68,7 +65,7 @@ const { title, description = "David - Full Stack Developer in Training" } =
 						const target = document.querySelector(id);
 						if (target) {
 							lenis.scrollTo(target as HTMLElement, {
-								offset: -80, // Space for sticky navbar
+								offset: -80,
 							});
 						}
 					}
@@ -79,7 +76,6 @@ const { title, description = "David - Full Stack Developer in Training" } =
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
 		<meta name="generator" content={Astro.generator} />
 
-		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
@@ -91,21 +87,18 @@ const { title, description = "David - Full Stack Developer in Training" } =
 		<meta name="robots" content="index, follow" />
 		<meta name="theme-color" content="#1fa3de" />
 
-		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content="/og-image.png" />
 
-		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content="/og-image.png" />
 
-		<!-- Structured Data -->
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
