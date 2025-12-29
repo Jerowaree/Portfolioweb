@@ -7,6 +7,8 @@ import {
     SiAstro,
     SiTailwindcss,
     SiNodedotjs,
+    SiNextdotjs,
+    SiNestjs,
     SiPython,
     SiPostgresql,
     SiSupabase,
@@ -30,6 +32,7 @@ const stackData = [
         description: "Creo interfaces de usuario rápidas, responsivas y accesibles con un enfoque en la experiencia de usuario y el rendimiento. Especializado en arquitecturas modernas basadas en componentes.",
         icons: [
             { name: "React", Icon: SiReact, color: "#61DAFB" },
+            { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
             { name: "Tailwind", Icon: SiTailwindcss, color: "#38B2AC" },
             { name: "Astro", Icon: SiAstro, color: "#FF5D01" },
             { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
@@ -42,8 +45,9 @@ const stackData = [
         description: "Diseño APIs robustas y esquemas de base de datos eficientes. Desarrollo lógica de servidor escalable y segura para soportar aplicaciones complejas.",
         icons: [
             { name: "Node.js", Icon: SiNodedotjs, color: "#83CD29" },
+            { name: "NestJS", Icon: SiNestjs, color: "#E0234E" },
             { name: "Python", Icon: SiPython, color: "#3776AB" },
-            { name: "SQL", Icon: SiPostgresql, color: "#003B57" }, // Using Postgres as standard SQL rep
+            { name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
             { name: "Supabase", Icon: SiSupabase, color: "#3ECF8E" }
         ]
     },
