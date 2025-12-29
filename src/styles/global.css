@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+@plugin "daisyui";
+
+html {
+    scroll-behavior: auto !important;
+}
+
+/* Lenis essential styles */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+@theme {
+    --font-sans: "Inter", sans-serif;
+    --color-primary: #1fa3de;
+    --color-secondary: #0ea5e9;
+    /* Supporting blue */
+}
+
+[data-theme="light"] {
+    --color-base-100: #f8fafc;
+    --color-base-200: #f1f5f9;
+    --color-base-300: #e2e8f0;
+    --bc: 215 28% 17%;
+    --github-icon-color: #181717;
+}
+
+[data-theme="dark"] {
+    --color-base-100: #0f172a;
+    --color-base-200: #1e293b;
+    --color-base-300: #334155;
+    --bc: 210 40% 98%;
+    --github-icon-color: #ffffff;
+}
+
+:root {
+    --p: 199 76% 50%;
+    --s: 200 90% 48%;
+}

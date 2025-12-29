@@ -1,0 +1,77 @@
+---
+import ThemeToggle from "./ThemeToggle";
+
+const links = [
+    { name: "Inicio", href: "#home" },
+    { name: "Sobre mí", href: "#about" },
+    { name: "Servicios", href: "#services" },
+    { name: "Stack", href: "#stack" },
+    { name: "Contacto", href: "#contact" },
+];
+---
+
+<div
+    class="sticky top-0 z-50 w-full backdrop-blur-lg bg-base-100/80 border-b border-base-200"
+>
+    <div class="navbar container mx-auto px-4">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        ><path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16"></path></svg
+                    >
+                </label>
+                <ul
+                    tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                    {
+                        links.map((link) => (
+                            <li>
+                                <a href={link.href}>{link.name}</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+            <a
+                href="#home"
+                class="btn btn-ghost text-xl font-bold tracking-tight"
+                >Jeroware<span class="text-[#1fa3de]">.dev</span></a
+            >
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                {
+                    links.map((link) => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="text-slate-600 dark:!text-white hover:text-[#1fa3de] dark:hover:text-primary transition-colors"
+                            >
+                                {link.name}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+        <div class="navbar-end gap-2">
+            <ThemeToggle client:load />
+            <a
+                href="#contact"
+                class="btn bg-[#1fa3de] hover:bg-[#1fa3de]/90 border-none btn-sm rounded-full text-white px-6 hidden sm:flex"
+                >Contáctame</a
+            >
+        </div>
+    </div>
+</div>

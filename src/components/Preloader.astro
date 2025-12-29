@@ -1,0 +1,86 @@
+---
+
+---
+
+<div
+    id="preloader"
+    class="fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ease-in-out"
+>
+    <div class="relative flex flex-col items-center">
+        <!-- Logo/Icon Container -->
+        <div class="relative mb-8">
+            <div
+                class="w-20 h-20 border-4 border-[#1fa3de]/10 rounded-2xl animate-[spin_3s_linear_infinite]"
+            >
+            </div>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                    class="w-12 h-12 bg-gradient-to-tr from-[#1fa3de] to-cyan-400 rounded-xl shadow-lg shadow-[#1fa3de]/20 animate-pulse"
+                >
+                </div>
+            </div>
+            <!-- Orbiting Dot -->
+            <div
+                class="absolute -top-1 -left-1 w-3 h-3 bg-cyan-400 rounded-full animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"
+            >
+            </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="text-center overflow-hidden">
+            <div class="mt-4 flex items-center justify-center gap-2">
+                <div
+                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce [animation-delay:-0.3s]"
+                >
+                </div>
+                <div
+                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce [animation-delay:-0.15s]"
+                >
+                </div>
+                <div
+                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce"
+                >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    #preloader.loaded {
+        opacity: 0;
+        pointer-events: none;
+        user-select: none;
+    }
+
+    /* Custom Spin Animation if not in Tailwind default */
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+<script>
+    function hidePreloader() {
+        const preloader = document.getElementById("preloader");
+        if (preloader) {
+            preloader.classList.add("loaded");
+            // Remove from DOM after transition to save resources
+            setTimeout(() => {
+                preloader.style.display = "none";
+            }, 700);
+        }
+    }
+
+    // Force a minimum duration of 1.8 seconds for the premium feel
+    window.addEventListener("load", () => {
+        setTimeout(hidePreloader, 1800);
+    });
+
+    // Safety timeout in case load event takes too long
+    setTimeout(hidePreloader, 5000);
+</script>

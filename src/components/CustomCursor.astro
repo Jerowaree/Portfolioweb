@@ -1,0 +1,107 @@
+---
+
+---
+
+<div
+    id="cursor-dot"
+    class="fixed top-0 left-0 w-2 h-2 bg-[#1fa3de] rounded-full pointer-events-none z-[999] transition-transform duration-100 ease-out hidden md:block"
+>
+</div>
+<div
+    id="cursor-ring"
+    class="fixed top-0 left-0 w-8 h-8 border border-[#1fa3de]/30 rounded-full pointer-events-none z-[998] transition-transform duration-300 ease-out hidden md:block"
+>
+</div>
+
+<style>
+    :root {
+        cursor: none;
+    }
+
+    a,
+    button,
+    [role="button"],
+    .magnetic-target {
+        cursor: none;
+    }
+
+    #cursor-dot.active {
+        transform: scale(3);
+        background-color: rgba(31, 163, 222, 0.2);
+        backdrop-filter: blur(2px);
+    }
+
+    #cursor-ring.active {
+        transform: scale(1.5);
+        border-color: rgba(31, 163, 222, 0.8);
+        background-color: rgba(31, 163, 222, 0.05);
+    }
+</style>
+
+<script>
+    const dot = document.getElementById("cursor-dot");
+    const ring = document.getElementById("cursor-ring");
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let dotX = 0;
+    let dotY = 0;
+    let ringX = 0;
+    let ringY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        // Smoothly follow mouse
+        dotX += (mouseX - dotX) * 0.2;
+        dotY += (mouseY - dotY) * 0.2;
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+
+        if (dot && ring) {
+            dot.style.transform = `translate(${dotX - 4}px, ${dotY - 4}px)`;
+            ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+        }
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    // Interaction triggers
+    const targets = document.querySelectorAll(
+        'a, button, [role="button"], .magnetic-target',
+    );
+
+    targets.forEach((target) => {
+        target.addEventListener("mouseenter", () => {
+            dot?.classList.add("active");
+            ring?.classList.add("active");
+        });
+
+        target.addEventListener("mouseleave", () => {
+            dot?.classList.remove("active");
+            ring?.classList.remove("active");
+        });
+
+        // Magnetic effect
+        target.addEventListener("mousemove", (e) => {
+            const rect = target.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = (e.clientX - centerX) * 0.3;
+            const deltaY = (e.clientY - centerY) * 0.3;
+
+            (target as HTMLElement).style.transform =
+                `translate(${deltaX}px, ${deltaY}px)`;
+        });
+
+        target.addEventListener("mouseleave", () => {
+            (target as HTMLElement).style.transform = "translate(0, 0)";
+        });
+    });
+</script>
