@@ -27,7 +27,7 @@ const VscodeIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const stackData = [
     {
         title: "Frontend Development",
-        description: "Creo interfaces de usuario rápidas, responsivas y accesibles con un enfoque en la experiencia de usuario y el rendimiento. Especializado en arquitecturas modernas basadas en componentes.",
+        description: "Creo interfaces de usuario rápidas, responsivas y accesibles con un enfoque en la experiencia de usuario, el SEO y el rendimiento. Especializado en arquitecturas modernas basadas en componentes.",
         icons: [
             { name: "React", Icon: SiReact, color: "#61DAFB" },
             { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
