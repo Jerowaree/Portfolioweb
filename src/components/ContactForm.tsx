@@ -16,9 +16,6 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-    React.useEffect(() => {
-        console.log('ContactForm Hydrated');
-    }, []);
 
     const {
         register,
