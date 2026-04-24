@@ -53,8 +53,11 @@ export default function ContactForm({ lang }: { lang: Lang }) {
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-500/40"></div>
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/40"></div>
                 </div>
-                <div className="text-[10px] text-white/60 font-black tracking-[0.3em] uppercase tracking-widest">Connect_Interface_v1.0</div>
-                <div className="text-[10px] text-[#1fa3de] font-black uppercase tracking-tighter">STATUS: {step > 2 ? t('contact.status.completed') : t('contact.status.idle')}</div>
+                <div className="text-[10px] text-white/40 font-black uppercase tracking-[0.2em] hidden sm:block">Connect_Interface_v1.0</div>
+                <div className="text-[10px] text-[#1fa3de] font-black uppercase tracking-[0.1em]">
+                    <span className="opacity-50 text-white mr-2">STATUS:</span>
+                    {step > 2 ? t('contact.status.completed') : t('contact.status.idle')}
+                </div>
             </div>
 
             <div className="space-y-1.5 mb-10 h-20 overflow-hidden">
@@ -78,20 +81,20 @@ export default function ContactForm({ lang }: { lang: Lang }) {
                                     <span className="text-[#1fa3de] font-black text-sm">/</span>
                                     <span className="text-white/70 text-[10px] font-black tracking-[0.4em] uppercase">{steps[step].label}</span>
                                 </div>
-                                <h4 className="text-3xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none italic">
+                                <h4 className="text-2xl md:text-5xl font-black text-white tracking-tighter uppercase leading-none italic">
                                     {steps[step].prompt}
                                 </h4>
                             </div>
 
                             <form onSubmit={handleNext} className="relative group">
-                                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[#1fa3de] font-black text-2xl animate-pulse">{">"}</span>
+                                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[#1fa3de] font-black text-xl md:text-2xl animate-pulse">{">"}</span>
                                 {step < 2 ? (
                                     <input
                                         ref={inputRef as any}
                                         type={steps[step].key === 'email' ? 'email' : 'text'}
                                         value={formData[steps[step].key as keyof typeof formData]}
                                         onChange={(e) => setFormData({...formData, [steps[step].key]: e.target.value})}
-                                        className="w-full bg-transparent border-none text-white text-2xl md:text-4xl font-black pl-10 focus:outline-none placeholder:text-white/5"
+                                        className="w-full bg-transparent border-none text-xl md:text-4xl font-black pl-8 md:pl-10 focus:outline-none placeholder:text-white/5"
                                         placeholder="TYPE_HERE..."
                                         autoComplete="off"
                                     />
@@ -100,7 +103,7 @@ export default function ContactForm({ lang }: { lang: Lang }) {
                                         ref={inputRef as any}
                                         value={formData.message}
                                         onChange={(e) => setFormData({...formData, message: e.target.value})}
-                                        className="w-full bg-transparent border-none text-white text-2xl md:text-4xl font-black pl-10 focus:outline-none placeholder:text-white/5 resize-none h-40"
+                                        className="w-full bg-transparent border-none text-xl md:text-4xl font-black pl-8 md:pl-10 focus:outline-none placeholder:text-white/5 resize-none h-40"
                                         placeholder="TYPE_HERE..."
                                     />
                                 )}

@@ -9,88 +9,187 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const links = [
-    { name: t('nav.home'), href: "#home" },
-    { name: t('nav.about'), href: "#about" },
-    { name: t('nav.projects'), href: "#projects" },
-    { name: t('nav.stack'), href: "#stack" },
+  { name: t("nav.home"), href: "#home" },
+  { name: t("nav.about"), href: "#about" },
+  { name: t("nav.projects"), href: "#projects" },
+  { name: t("nav.stack"), href: "#stack" },
 ];
 ---
 
 <header
-    class="fixed top-0 z-50 w-full bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 font-mono"
+  class="fixed top-0 z-[100] w-full bg-[#050505]/80 backdrop-blur-xl border-b border-white/5 font-mono"
 >
-    <div class="flex items-center h-14 px-4 gap-8">
-        <!-- 1. Breadcrumbs / Brand -->
-        <div class="flex items-center gap-3 select-none">
-            <a href={`/${lang}/`} class="flex items-center gap-2 group">
-                <div class="w-6 h-6 bg-[#1fa3de] rounded-sm flex items-center justify-center text-[10px] text-white font-black shadow-[0_0_10px_rgba(31,163,222,0.3)]">D</div>
-                <div class="flex items-center text-[10px] font-bold tracking-tighter uppercase">
-                    <span class="text-white/40 group-hover:text-white transition-colors">JEROWARE</span>
-                    <span class="text-white/10 mx-2">/</span>
-                    <span class="text-[#1fa3de]">APP</span>
-                    <span class="text-white/10 mx-2">/</span>
-                    <span class="text-white/60">MAIN</span>
-                </div>
-            </a>
+  <div class="flex items-center h-16 px-4 md:px-8 gap-8">
+    <!-- 1. Breadcrumbs / Brand -->
+    <div class="flex items-center gap-3 select-none">
+      <a href={`/${lang}/`} class="flex items-center gap-2 group">
+        <div
+          class="w-7 h-7 bg-[#1fa3de] rounded-sm flex items-center justify-center text-[11px] text-white font-black shadow-[0_0_15px_rgba(31,163,222,0.3)]"
+        >
+          D
         </div>
-
-        <!-- 2. Navigation Tabs (IDE Style) -->
-        <nav class="hidden lg:flex items-center h-full">
-            {
-                links.map((link) => (
-                    <a
-                        href={link.href}
-                        class="h-full px-6 flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white hover:bg-white/5 border-r border-white/5 transition-all relative group"
-                    >
-                        <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[#1fa3de] font-mono leading-none">_</span>
-                        {link.name}
-                        <!-- Tab Active Indicator -->
-                        <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1fa3de] group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(31,163,222,0.5)]"></div>
-                    </a>
-                ))
-            }
-        </nav>
-
-        <!-- 3. System Tray / Utilities -->
-        <div class="ml-auto flex items-center gap-6">
-            <!-- Build Status (Decorative) -->
-            <div class="hidden sm:flex items-center gap-2.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-md">
-                <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
-                <span class="text-[8px] font-black text-white/40 uppercase tracking-widest">Build: Success</span>
-            </div>
-
-            <!-- Language Switcher (System look) -->
-            <div class="flex items-center bg-white/5 rounded-md p-1 border border-white/10 h-8">
-              <a 
-                href="/es/" 
-                class={`px-2.5 h-full flex items-center rounded text-[9px] font-black transition-all ${lang === 'es' ? 'bg-[#1fa3de] text-white shadow-lg shadow-[#1fa3de]/20' : 'text-white/20 hover:text-white/50'}`}
-              >
-                ES
-              </a>
-              <a 
-                href="/en/" 
-                class={`px-2.5 h-full flex items-center rounded text-[9px] font-black transition-all ${lang === 'en' ? 'bg-[#1fa3de] text-white shadow-lg shadow-[#1fa3de]/20' : 'text-white/20 hover:text-white/50'}`}
-              >
-                EN
-              </a>
-            </div>
-
-            <div class="h-4 w-px bg-white/10 hidden sm:block"></div>
-
-
-            <a
-                href="#contact"
-                class="hidden md:flex items-center gap-2 px-4 py-1.5 bg-white text-black text-[9px] font-black uppercase tracking-[0.2em] rounded-sm hover:bg-[#1fa3de] hover:text-white transition-all active:scale-95 shadow-xl shadow-white/5 hover:shadow-[#1fa3de]/20"
-            >
-                {t('nav.contact')}
-            </a>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="lg:hidden text-white/40 hover:text-white transition-colors">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
+        <div
+          class="flex items-center text-[11px] font-bold tracking-tighter uppercase"
+        >
+          <span class="text-white/40 group-hover:text-white transition-colors"
+            >JEROWARE</span
+          >
+          <span class="text-white/10 mx-2">/</span>
+          <span class="text-[#1fa3de]">APP</span>
+          <span class="text-white/10 mx-2">/</span>
+          <span class="text-white/60">MAIN</span>
         </div>
+      </a>
     </div>
+
+    <!-- 2. Navigation Tabs (Desktop) -->
+    <nav class="hidden lg:flex items-center h-full">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="h-full px-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white hover:bg-white/5 border-r border-white/5 transition-all relative group"
+          >
+            <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[#1fa3de] font-mono leading-none">
+              _
+            </span>
+            {link.name}
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#1fa3de] group-hover:w-full transition-all duration-300 shadow-[0_0_8px_rgba(31,163,222,0.5)]" />
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- 3. System Tray / Utilities -->
+    <div class="ml-auto flex items-center gap-4 md:gap-6">
+      <!-- Build Status (Desktop) -->
+      <div
+        class="hidden sm:flex items-center gap-2.5 px-3 py-1.5 bg-white/5 border border-white/10 rounded-md"
+      >
+        <div
+          class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"
+        >
+        </div>
+        <span class="text-[9px] font-black text-white/40 uppercase tracking-widest"
+          >Build: Success</span
+        >
+      </div>
+
+      <!-- Language Switcher (Desktop) -->
+      <div class="hidden md:flex items-center bg-white/5 rounded-md p-1 border border-white/10 h-8">
+        <a
+          href="/es/"
+          class={`px-2.5 h-full flex items-center rounded text-[9px] font-black transition-all ${lang === "es" ? "bg-[#1fa3de] text-white shadow-lg shadow-[#1fa3de]/20" : "text-white/20 hover:text-white/50"}`}
+        >
+          ES
+        </a>
+        <a
+          href="/en/"
+          class={`px-2.5 h-full flex items-center rounded text-[9px] font-black transition-all ${lang === "en" ? "bg-[#1fa3de] text-white shadow-lg shadow-[#1fa3de]/20" : "text-white/20 hover:text-white/50"}`}
+        >
+          EN
+        </a>
+      </div>
+
+      <a
+        href="#contact"
+        class="hidden md:flex items-center gap-2 px-5 py-2 bg-white text-black text-[10px] font-black uppercase tracking-[0.2em] rounded-sm hover:bg-[#1fa3de] hover:text-white transition-all active:scale-95 shadow-xl shadow-white/5"
+      >
+        {t("nav.contact")}
+      </a>
+
+      <!-- Mobile Toggle Button -->
+      <button
+        id="mobile-menu-toggle"
+        class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white/5 border border-white/10 rounded-lg text-white/60 hover:text-white transition-all active:scale-90"
+        aria-label="Toggle Menu"
+      >
+        <div class="w-5 h-0.5 bg-current transition-all duration-300" id="bar-1"></div>
+        <div class="w-5 h-0.5 bg-current transition-all duration-300" id="bar-2"></div>
+        <div class="w-3 h-0.5 bg-[#1fa3de] self-end mr-2.5 transition-all duration-300" id="bar-3"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Overlay Menu -->
+  <div
+    id="mobile-overlay"
+    class="fixed inset-0 top-16 bg-[#050505] z-[99] translate-x-full transition-transform duration-500 ease-in-out lg:hidden border-t border-white/5"
+  >
+    <div class="flex flex-col h-full p-8">
+      <div class="flex flex-col gap-2 mb-12">
+        <span class="text-[10px] text-[#1fa3de] font-black uppercase tracking-[0.4em]">Directory_Navigation</span>
+        <div class="h-px bg-gradient-to-r from-[#1fa3de]/40 to-transparent"></div>
+      </div>
+      
+      <nav class="flex flex-col gap-6">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="mobile-link text-3xl font-black text-white/40 hover:text-white transition-all tracking-tighter uppercase italic py-2 flex items-center gap-4 group"
+            >
+              <span class="text-[#1fa3de] text-xl opacity-0 group-hover:opacity-100 transition-opacity">_</span>
+              {link.name}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="mt-auto space-y-10">
+        <div class="flex flex-col gap-4">
+          <span class="text-[10px] text-white/20 font-black uppercase tracking-[0.4em]">System_Language</span>
+          <div class="flex gap-4">
+            <a href="/es/" class={`flex-grow py-4 border rounded-xl flex items-center justify-center text-xs font-black transition-all ${lang === 'es' ? 'bg-[#1fa3de] border-[#1fa3de] text-white' : 'bg-white/5 border-white/10 text-white/40'}`}>CASTELLANO</a>
+            <a href="/en/" class={`flex-grow py-4 border rounded-xl flex items-center justify-center text-xs font-black transition-all ${lang === 'en' ? 'bg-[#1fa3de] border-[#1fa3de] text-white' : 'bg-white/5 border-white/10 text-white/40'}`}>ENGLISH</a>
+          </div>
+        </div>
+
+        <a href="#contact" class="mobile-link w-full py-5 bg-white text-black text-center text-xs font-black uppercase tracking-[0.3em] rounded-xl active:scale-95 transition-all">
+          {t('nav.contact')}
+        </a>
+
+        <div class="flex items-center justify-between text-[8px] text-white/10 font-black uppercase tracking-widest border-t border-white/5 pt-6">
+          <span>Jeroware_OS v2.4</span>
+          <span>Status: Secure</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const overlay = document.getElementById('mobile-overlay');
+  const bar1 = document.getElementById('bar-1');
+  const bar2 = document.getElementById('bar-2');
+  const bar3 = document.getElementById('bar-3');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  let isOpen = false;
+
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    if (isOpen) {
+      overlay?.classList.remove('translate-x-full');
+      bar1?.classList.add('rotate-45', 'translate-y-2');
+      bar2?.classList.add('opacity-0');
+      bar3?.classList.add('-rotate-45', '-translate-y-2', 'w-5');
+      document.body.style.overflow = 'hidden';
+    } else {
+      overlay?.classList.add('translate-x-full');
+      bar1?.classList.remove('rotate-45', 'translate-y-2');
+      bar2?.classList.remove('opacity-0');
+      bar3?.classList.remove('-rotate-45', '-translate-y-2', 'w-5');
+      document.body.style.overflow = '';
+    }
+  };
+
+  toggle?.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isOpen) toggleMenu();
+    });
+  });
+</script>

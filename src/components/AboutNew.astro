@@ -7,10 +7,15 @@ import { useTranslations } from "../utils/i18n";
 const t = useTranslations(lang);
 ---
 
-<section id="about" class="py-32 bg-[#050505] relative overflow-hidden font-mono border-b border-white/5">
-    <!-- Background Technical Grid -->
-    <div class="absolute inset-0 z-0 opacity-[0.05]" 
+<section id="about" class="py-32 bg-[#050505] relative overflow-hidden font-mono border-b border-white/5 group/about">
+    <!-- Background Technical Grid with Spotlight -->
+    <div class="absolute inset-0 z-0 opacity-[0.05] transition-opacity duration-700 group-hover/about:opacity-[0.08]" 
          style="background-image: linear-gradient(#1fa3de 1px, transparent 1px), linear-gradient(90deg, #1fa3de 1px, transparent 1px); background-size: 80px 80px;">
+    </div>
+    
+    <!-- Interactive Spotlight Overlay -->
+    <div id="grid-spotlight" class="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover/about:opacity-100 transition-opacity duration-500"
+         style="background: radial-gradient(circle 300px at var(--mouse-x) var(--mouse-y), rgba(31,163,222,0.15), transparent 80%);">
     </div>
 
     <div class="container mx-auto px-6 relative z-10">
@@ -67,24 +72,21 @@ const t = useTranslations(lang);
                 </div>
             </div>
 
-            <!-- Module 02: Visual Schematic -->
-            <div class="lg:col-span-2 flex flex-col items-center justify-center gap-12 py-12 lg:py-0 self-stretch">
-                <div class="flex-grow w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
+            <!-- Module 02: Visual Schematic (Optimized for mobile) -->
+            <div class="lg:col-span-2 flex lg:flex-col items-center justify-center gap-6 lg:gap-12 py-12 lg:py-0 self-stretch overflow-hidden">
+                <div class="hidden lg:block flex-grow w-px bg-gradient-to-b from-transparent via-white/10 to-transparent"></div>
                 
                 <div class="relative group">
                     <!-- Central Core -->
-                    <div class="w-20 h-20 rounded-2xl border-2 border-[#1fa3de]/40 flex items-center justify-center bg-black z-10 relative group-hover:rotate-45 transition-all duration-700 shadow-[0_0_40px_rgba(31,163,222,0.15)] group-hover:shadow-[#1fa3de]/30">
-                        <svg class="w-8 h-8 text-[#1fa3de] group-hover:-rotate-45 transition-transform duration-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl border-2 border-[#1fa3de]/40 flex items-center justify-center bg-black z-10 relative group-hover:rotate-45 transition-all duration-700 shadow-[0_0_40px_rgba(31,163,222,0.15)]">
+                        <svg class="w-6 h-6 lg:w-8 lg:h-8 text-[#1fa3de] group-hover:-rotate-45 transition-transform duration-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    
-                    <!-- Pulsing Rings -->
-                    <div class="absolute inset-0 scale-[1.5] border border-white/5 rounded-full animate-ping opacity-20"></div>
-                    <div class="absolute inset-0 scale-[2] border border-[#1fa3de]/10 rounded-full animate-pulse opacity-10"></div>
                 </div>
 
-                <div class="flex-grow w-px bg-gradient-to-t from-transparent via-white/10 to-transparent"></div>
+                <div class="hidden lg:block flex-grow w-px bg-gradient-to-t from-transparent via-white/10 to-transparent"></div>
+                <div class="lg:hidden h-px flex-grow bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
             </div>
 
             <!-- Module 03: Logic Core -->
@@ -148,3 +150,18 @@ const t = useTranslations(lang);
         animation: typewriter-fast 3s steps(60) 2s forwards;
     }
 </style>
+
+<script>
+    const aboutSection = document.getElementById('about');
+    
+    if (aboutSection) {
+        aboutSection.addEventListener('mousemove', (e) => {
+            const rect = aboutSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            aboutSection.style.setProperty('--mouse-x', `${x}px`);
+            aboutSection.style.setProperty('--mouse-y', `${y}px`);
+        });
+    }
+</script>

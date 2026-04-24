@@ -89,12 +89,12 @@ const navLinks = [
     <div
       class="grid grid-cols-2 md:grid-cols-4 gap-16 py-20 border-y border-white/5"
     >
-      <div class="space-y-8">
+      <div class="space-y-10">
         <span
-          class="text-[11px] font-black text-white/50 uppercase tracking-[0.3em]"
+          class="block text-[11px] font-black text-white/50 uppercase tracking-[0.3em] mb-8"
           >{t("footer.nav_mapping")}</span
         >
-        <ul class="space-y-5">
+        <ul class="space-y-6">
           {
             navLinks.map((link) => (
               <li>
@@ -113,12 +113,12 @@ const navLinks = [
         </ul>
       </div>
 
-      <div class="space-y-8">
+      <div class="space-y-10">
         <span
-          class="text-[11px] font-black text-white/50 uppercase tracking-[0.3em]"
+          class="block text-[11px] font-black text-white/50 uppercase tracking-[0.3em] mb-8"
           >{t("footer.endpoints")}</span
         >
-        <div class="space-y-6">
+        <div class="space-y-8">
           <div class="flex flex-col gap-2">
             <span
               class="text-[9px] text-white/40 uppercase font-black tracking-widest italic"
@@ -133,6 +133,18 @@ const navLinks = [
           <div class="flex flex-col gap-2">
             <span
               class="text-[9px] text-white/40 uppercase font-black tracking-widest italic"
+              >{lang === 'es' ? 'Protocolo.WhatsApp_Direct' : 'Protocol.WhatsApp_Direct'}</span
+            >
+            <a
+              href="https://wa.me/51913908280"
+              target="_blank"
+              class="text-[12px] text-white/60 hover:text-[#1fa3de] transition-colors font-black"
+              >+51 913908280</a
+            >
+          </div>
+          <div class="flex flex-col gap-2">
+            <span
+              class="text-[9px] text-white/40 uppercase font-black tracking-widest italic"
               >{lang === 'es' ? 'Protocolo.Ubicacion_Base' : 'Protocol.Location_Base'}</span
             >
             <span class="text-[12px] text-white/60 uppercase font-black"
@@ -142,9 +154,9 @@ const navLinks = [
         </div>
       </div>
 
-      <div class="col-span-2 space-y-8 hidden md:block">
+      <div class="col-span-2 space-y-10 hidden md:block">
         <span
-          class="text-[11px] font-black text-white/50 uppercase tracking-[0.3em]"
+          class="block text-[11px] font-black text-white/50 uppercase tracking-[0.3em] mb-8"
           >{t("footer.stats")}</span
         >
         <div
