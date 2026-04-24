@@ -1,43 +1,37 @@
 ---
-
 ---
 
 <div
     id="preloader"
-    class="fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ease-in-out"
+    class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#050505] transition-all duration-1000 ease-in-out font-mono"
 >
-    <div class="relative flex flex-col items-center">
-        <div class="relative mb-8">
-            <div
-                class="w-20 h-20 border-4 border-[#1fa3de]/10 rounded-2xl animate-[spin_3s_linear_infinite]"
-            >
-            </div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div
-                    class="w-12 h-12 bg-gradient-to-tr from-[#1fa3de] to-cyan-400 rounded-xl shadow-lg shadow-[#1fa3de]/20 animate-pulse"
-                >
-                </div>
-            </div>
-            <div
-                class="absolute -top-1 -left-1 w-3 h-3 bg-cyan-400 rounded-full animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"
-            >
+    <div class="w-full max-w-md px-10">
+        <!-- 1. System Identity -->
+        <div class="flex items-center gap-4 mb-12 opacity-80">
+            <div class="w-10 h-10 bg-[#1fa3de] rounded-sm flex items-center justify-center text-white font-black shadow-[0_0_20px_rgba(31,163,222,0.3)]">D</div>
+            <div class="flex flex-col">
+                <span class="text-[10px] text-white/30 uppercase tracking-[0.4em]">Booting sequence</span>
+                <span class="text-xs text-white font-black tracking-tight">JEROWARE_OS v2.4.0-stable</span>
             </div>
         </div>
 
-        <div class="text-center overflow-hidden">
-            <div class="mt-4 flex items-center justify-center gap-2">
-                <div
-                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce [animation-delay:-0.3s]"
-                >
-                </div>
-                <div
-                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce [animation-delay:-0.15s]"
-                >
-                </div>
-                <div
-                    class="h-1.5 w-1.5 bg-[#1fa3de] rounded-full animate-bounce"
-                >
-                </div>
+        <!-- 2. Terminal Output -->
+        <div id="terminal-output" class="space-y-1.5 mb-12 h-32 overflow-hidden text-[9px] text-[#1fa3de]/50 font-bold uppercase tracking-tight">
+            <!-- Lines will be injected by JS -->
+        </div>
+
+        <!-- 3. Segmented Progress Bar -->
+        <div class="space-y-5">
+            <div class="flex justify-between text-[9px] font-black text-white/20 uppercase tracking-[0.2em]">
+                <span>Building_Interface</span>
+                <span id="progress-percent">0%</span>
+            </div>
+            <div class="flex gap-1.5">
+                {Array.from({ length: 15 }).map((_, i) => (
+                    <div class="h-1 flex-grow bg-white/5 rounded-full overflow-hidden">
+                        <div class="progress-segment h-full bg-[#1fa3de] opacity-0 transition-all duration-300" data-index={i}></div>
+                    </div>
+                ))}
             </div>
         </div>
     </div>
@@ -46,34 +40,71 @@
 <style>
     #preloader.loaded {
         opacity: 0;
+        visibility: hidden;
+        transform: scale(1.05);
         pointer-events: none;
-        user-select: none;
-    }
-
-    @keyframes spin {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
     }
 </style>
 
 <script>
-    function hidePreloader() {
-        const preloader = document.getElementById("preloader");
-        if (preloader) {
-            preloader.classList.add("loaded");
-            setTimeout(() => {
-                preloader.style.display = "none";
-            }, 700);
-        }
+    const lines = [
+        "[OK] MOUNTING_CORE_FS...",
+        "[OK] INITIALIZING_RESOURCES...",
+        "[OK] DEPLOYING_AI_ENGINE...",
+        "[OK] OPTIMIZING_CANVAS_RENDERER...",
+        "[OK] ESTABLISHING_HANDSHAKE...",
+        "[OK] SYNCING_BUILDER_DATA...",
+        "[READY] STARTING_PORTFOLIO_ENGINE."
+    ];
+
+    function startBoot() {
+        const output = document.getElementById('terminal-output');
+        const segments = document.querySelectorAll('.progress-segment');
+        const percent = document.getElementById('progress-percent');
+        const preloader = document.getElementById('preloader');
+        
+        let currentLine = 0;
+        let currentProgress = 0;
+
+        const interval = setInterval(() => {
+            if (currentLine < lines.length) {
+                const line = document.createElement('div');
+                line.style.opacity = "0";
+                line.style.transform = "translateX(-10px)";
+                line.style.transition = "all 0.3s ease-out";
+                line.textContent = lines[currentLine];
+                output?.appendChild(line);
+                
+                // Trigger reflow for animation
+                setTimeout(() => {
+                    line.style.opacity = "1";
+                    line.style.transform = "translateX(0)";
+                }, 10);
+
+                currentLine++;
+            }
+
+            if (currentProgress < segments.length) {
+                (segments[currentProgress] as HTMLElement).style.opacity = "1";
+                (segments[currentProgress] as HTMLElement).style.boxShadow = "0 0 10px rgba(31, 163, 222, 0.5)";
+                currentProgress++;
+                if (percent) percent.textContent = `${Math.round((currentProgress / segments.length) * 100)}%`;
+            }
+
+            if (currentLine >= lines.length && currentProgress >= segments.length) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader?.classList.add('loaded');
+                }, 600);
+            }
+        }, 120);
     }
 
-    window.addEventListener("load", () => {
-        setTimeout(hidePreloader, 1800);
-    });
-
-    setTimeout(hidePreloader, 5000);
+    // Ensure it triggers even if load takes too long
+    window.addEventListener('load', startBoot);
+    setTimeout(() => {
+        if (document.getElementById('preloader') && !document.getElementById('preloader')?.classList.contains('loaded')) {
+            startBoot();
+        }
+    }, 4000);
 </script>

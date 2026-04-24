@@ -41,12 +41,17 @@ html.lenis body {
     --github-icon-color: #181717;
 }
 
-[data-theme="dark"] {
-    --color-base-100: #0f172a;
-    --color-base-200: #1e293b;
-    --color-base-300: #334155;
+[data-theme="dark"], :root {
+    --color-base-100: #050505;
+    --color-base-200: #0a0a0a;
+    --color-base-300: #161b22;
     --bc: 210 40% 98%;
     --github-icon-color: #ffffff;
+}
+
+body {
+    background-color: #050505 !important;
+    color: #ffffff;
 }
 
 :root {

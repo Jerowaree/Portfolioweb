@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Builder",
+    "projects": "Soluciones",
+    "stack": "Tecnología",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "badge": "Ingeniero de Software & AI Builder",
+    "title": "Arquitecto de sistemas inteligentes para el ",
+    "titleAccent": "mundo real.",
+    "subtitle": "Especializado en transformar problemas complejos en productos escalables. No solo escribo código; diseño soluciones que impulsan el valor de negocio.",
+    "cta": "Explorar soluciones",
+    "secondary": "Hablemos"
+  },
+  "about": {
+    "title": "La mentalidad de un Builder",
+    "subtitle": "Donde otros ven código, yo veo sistemas.",
+    "description1": "Mi enfoque no es académico; es de ejecución. Me especializo en la intersección del diseño de producto y la ingeniería robusta.",
+    "description2": "Desde el diseño de la experiencia de usuario hasta la arquitectura de backend con IA, construyo con el objetivo de escalar y generar impacto real."
+  },
+  "stack": {
+    "title": "Herramientas",
+    "subtitle": "Para la Excelencia",
+    "explorer": "Explorador de Archivos",
+    "frontend": {
+      "title": "Ingeniería de Producto",
+      "description": "Especializado en interfaces de alto rendimiento. Foco en arquitecturas modulares, velocidad de carga y una experiencia de usuario que impulse la retención.",
+      "category": "Frontend & UI/UX"
+    },
+    "backend": {
+      "title": "Arquitectura de Sistemas",
+      "description": "Diseño de infraestructuras escalables y APIs robustas. Manejo eficiente de datos y lógica de servidor crítica para el negocio.",
+      "category": "Backend & Infraestructura"
+    },
+    "ai": {
+      "title": "Inteligencia Artificial",
+      "description": "Integración estratégica de modelos de lenguaje y automatización inteligente para resolver problemas que antes eran imposibles.",
+      "category": "LLMs & Automatización"
+    }
+  },
+  "services": {
+    "title": "Capacidades",
+    "subtitle": "De Ingeniería Estratégica",
+    "outcome": "Resultado Esperado",
+    "cta": "Inicializar Descubrimiento",
+    "lead": {
+      "title": "¿Listo para escalar tu próximo producto?",
+      "subtitle": "Diseño soluciones técnicas que no solo funcionan, sino que dominan el mercado. Hablemos de cómo puedo aportar valor real a tu negocio.",
+      "cta": "Agendar Consultoría Técnica"
+    }
+  },
+  "projects": {
+    "title": "Soluciones",
+    "subtitle": "Que Definen Mi Carrera",
+    "featured": "Despliegue Destacado",
+    "impact": "Impacto Validado",
+    "analyze": "Analizar"
+  },
+  "contact": {
+    "title": "Enviar Mensaje",
+    "subtitle": "Hablemos de Tu Próximo Gran Proyecto",
+    "status": {
+      "idle": "ESPERANDO_ENTRADA",
+      "completed": "COMPLETADO",
+      "encrypted": "CIFRADO"
+    },
+    "prompts": {
+      "name": "IDENTIFÍCATE:",
+      "email": "¿DÓNDE PUEDO CONTACTARTE? (EMAIL):",
+      "message": "DEFINE EL ALCANCE DEL PROYECTO / MENSAJE:"
+    },
+    "logs": {
+      "init": "[SYS]: INICIALIZANDO CANAL SEGURO...",
+      "ready": "[SYS]: LISTO PARA ENTRADA",
+      "error": "[ERROR]: REQUERIDO",
+      "validated": "[OK]: VALIDADO",
+      "sending": "[SYS]: EJECUTANDO PROTOCOLO DE ENVÍO...",
+      "success": "TRANSMISIÓN_COMPLETA",
+      "successSub": "Tu solicitud ha sido desplegada con éxito. Responderé en los próximos 24 ciclos comerciales."
+    },
+    "cta": "Ejecutar Secuencia de Conexión"
+  },
+  "footer": {
+    "nav_mapping": "Mapa de Navegación",
+    "endpoints": "Puntos de Conexión",
+    "stats": "Estadísticas de Ejecución",
+    "version": "Versión de Compilación",
+    "uptime_label": "Tiempo de Actividad",
+    "license_label": "Licencia del Sistema",
+    "uptime": "99.99% PRECISIÓN",
+    "license": "LICENCIA_MIT_X11",
+    "built": "Construido con Astro & React"
+  }
+}

@@ -1,90 +1,170 @@
 ---
-
+interface Props {
+  lang: 'es' | 'en';
+}
+const { lang } = Astro.props;
+import { useTranslations } from "../utils/i18n";
+const t = useTranslations(lang);
 ---
 
 <section
     id="home"
-    class="min-h-screen flex items-center justify-center relative overflow-hidden bg-base-100 dark:bg-slate-950"
+    class="min-h-screen bg-[#050505] relative overflow-hidden font-mono flex items-center justify-center border-b border-white/5 pt-20"
 >
-    <div
-        class="absolute -top-20 -right-20 w-96 h-96 bg-[#1fa3de]/10 rounded-full blur-3xl opacity-50 pointer-events-none"
-    >
+    <!-- 1. The Workbench Rulers -->
+    <div class="absolute top-20 left-0 w-full h-8 border-b border-white/5 flex items-center px-4 gap-4 opacity-40 select-none z-20">
+        <span class="text-[8px] text-white/40 font-mono tracking-tighter">0px</span>
+        <div class="flex-grow h-[1px] bg-white/10 relative">
+             <div class="absolute top-0 left-1/4 w-[1px] h-2 bg-white/20"></div>
+             <div class="absolute top-0 left-2/4 w-[1px] h-2 bg-white/20"></div>
+             <div class="absolute top-0 left-3/4 w-[1px] h-2 bg-white/20"></div>
+        </div>
+        <span class="text-[8px] text-white/40 font-mono tracking-tighter">1920px</span>
     </div>
-    <div
-        class="absolute top-40 -left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl opacity-50 pointer-events-none"
-    >
+    <div class="absolute top-20 left-0 w-8 h-full border-r border-white/5 flex flex-col items-center py-4 gap-4 opacity-40 select-none z-20">
+        <span class="text-[8px] text-white/40 [writing-mode:vertical-lr] font-mono tracking-tighter">0px</span>
+        <div class="w-[1px] flex-grow bg-white/10 relative">
+            <div class="absolute left-0 top-1/4 h-[1px] w-2 bg-white/20"></div>
+            <div class="absolute left-0 top-2/4 h-[1px] w-2 bg-white/20"></div>
+            <div class="absolute left-0 top-3/4 h-[1px] w-2 bg-white/20"></div>
+        </div>
+        <span class="text-[8px] text-white/40 [writing-mode:vertical-lr] font-mono tracking-tighter">1080px</span>
     </div>
 
-    <div class="container mx-auto px-20 z-10">
-        <div class="flex flex-col lg:flex-row items-center gap-12">
-            <div class="flex-1 text-center lg:text-left space-y-6">
-                <h1
-                    class="text-4xl lg:text-6xl font-bold tracking-tight text-base-content leading-tight"
-                >
-                    Hola, soy <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-[#1fa3de] to-cyan-500"
-                        >David</span
-                    >
-                    <br />
-                    <span
-                        class="text-3xl lg:text-5xl text-slate-600 dark:!text-white"
-                        >Transformando ideas en Sistemas Inteligentes</span
-                    >
-                </h1>
-                <p
-                    class="text-lg text-slate-600 dark:!text-slate-100 max-w-xl mx-auto lg:mx-0 leading-relaxed"
-                >
-                    Más allá del código: diseño soluciones que impulsan tu
-                    negocio. Especializado en escalar aplicaciones modernas y
-                    potenciar el desarrollo web con Inteligencia Artificial.
-                </p>
-                <div
-                    class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4"
-                >
-                    <a
-                        href="#projects"
-                        class="btn bg-[#1fa3de] hover:bg-[#1fa3de]/90 border-none text-white rounded-full px-8 shadow-[#1fa3de]/20 hover:shadow-[#1fa3de]/40 transition-all font-bold"
-                    >
-                        Explora mi trabajo
-                    </a>
-                    <a
-                        href="#contact"
-                        class="btn btn-outline border-base-500 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-base-200 dark:hover:bg-slate-800 rounded-full px-8 transition-all"
-                    >
-                        Hablemos
-                    </a>
-                </div>
+    <!-- 2. Background Matrix Grid -->
+    <div class="absolute inset-0 z-0 pointer-events-none opacity-40" 
+         style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;">
+    </div>
+
+    <!-- 3. Left Sidebar: Layers/Nav -->
+    <div class="hidden lg:flex absolute left-8 top-40 bottom-8 w-64 border-r border-white/5 flex-col p-6 opacity-0 animate-fade-in-left z-20" style="animation-delay: 0.5s;">
+        <span class="text-[9px] text-white/30 uppercase tracking-[0.3em] mb-10 font-black">Project_Structure</span>
+        <div class="space-y-8">
+            <div class="group flex items-center gap-3 text-white/40 hover:text-[#1fa3de] transition-all cursor-pointer">
+                <div class="w-4 h-4 rounded-sm border border-white/10 group-hover:border-[#1fa3de] group-hover:bg-[#1fa3de]/10 transition-all"></div>
+                <span class="text-[11px] font-bold tracking-tight uppercase">root / app</span>
             </div>
-
-            <div class="flex-1 relative">
-                <div class="relative w-72 h-72 lg:w-96 lg:h-96 mx-auto">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-tr from-[#1fa3de]/20 to-blue-500/20 rounded-full blur-2xl animate-pulse"
-                    >
-                    </div>
-                    <div
-                        class="relative w-full h-full bg-base-100 rounded-2xl shadow-2xl p-4 rotate-3 hover:rotate-0 transition-transform duration-500 flex items-center justify-center border border-base-200 dark:border-slate-800"
-                    >
-                        <div class="text-center">
-                            <div class="avatar">
-                                <div
-                                    class="w-48 rounded-full ring ring-[#1fa3de] ring-offset-base-100 ring-offset-2"
-                                >
-                                    <img
-                                        src="https://ui-avatars.com/api/?name=David&background=38bdf8&color=fff&size=200"
-                                        alt="David Avatar"
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                class="mt-4 font-mono text-sm text-slate-500 dark:text-[#1fa3de]/80 bg-base-200 py-1.5 px-4 rounded-full border border-base-300 dark:border-slate-700"
-                            >
-                                &lt;Hola Mundo/&gt;
-                            </div>
-                        </div>
-                    </div>
+            <div class="pl-4 space-y-6 border-l border-white/10">
+                <div class="flex items-center gap-3 text-white/60 hover:text-[#1fa3de] transition-colors cursor-pointer group">
+                    <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    <span class="text-[11px]">{t('nav.home')}</span>
+                </div>
+                <div class="flex items-center gap-3 text-white/60 hover:text-[#1fa3de] transition-colors cursor-pointer group">
+                    <svg class="w-3 h-3 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    <span class="text-[11px]">{t('nav.about')}</span>
+                </div>
+                <div class="flex items-center gap-3 text-[#1fa3de] font-black group">
+                    <svg class="w-3 h-3 text-[#1fa3de]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                    <span class="text-[11px]">Core_Builder.tsx</span>
+                    <div class="w-1.5 h-1.5 rounded-full bg-[#1fa3de] animate-pulse ml-auto"></div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- 4. Central Canvas -->
+    <div class="container mx-auto z-10 px-6 lg:pl-80 lg:pr-80">
+        <div class="relative inline-block group">
+            <!-- Selection Nodes -->
+            <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[#1fa3de] border-2 border-white/20 z-30"></div>
+            <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[#1fa3de] border-2 border-white/20 z-30"></div>
+            <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[#1fa3de] border-2 border-white/20 z-30"></div>
+            <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[#1fa3de] border-2 border-white/20 z-30"></div>
+            
+            <!-- Selection Box -->
+            <div class="absolute -inset-4 border border-[#1fa3de]/40 border-dashed animate-pulse opacity-50"></div>
+
+            <div class="space-y-6 relative py-4">
+                <div class="flex items-center gap-3 opacity-0 animate-fade-in" style="animation-delay: 0.3s;">
+                     <span class="text-[10px] font-black text-[#1fa3de] bg-[#1fa3de]/10 px-2 py-0.5 rounded tracking-[0.2em]">BUILD_V2.0</span>
+                     <span class="w-20 h-px bg-white/10"></span>
+                </div>
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-[0.85] tracking-tighter mix-blend-difference">
+                    {t('hero.title').toUpperCase()}<br/>
+                    <span class="text-white/40 italic">
+                        {t('hero.titleAccent').toUpperCase()}
+                    </span>
+                </h1>
+            </div>
+        </div>
+
+        <p class="mt-12 text-lg md:text-xl text-white/40 max-w-xl leading-relaxed font-sans font-medium opacity-0 animate-fade-in" style="animation-delay: 1s;">
+            {t('hero.subtitle')}
+        </p>
+
+        <!-- Command Bar CTA -->
+        <div class="mt-20 relative max-w-md group cursor-pointer opacity-0 animate-fade-in-up" style="animation-delay: 1.2s;">
+            <div class="absolute -inset-1 bg-gradient-to-r from-[#1fa3de] to-indigo-600 rounded-2xl blur-md opacity-20 group-hover:opacity-50 transition duration-500"></div>
+            <div class="relative bg-black border border-white/10 rounded-2xl p-5 flex items-center justify-between transition-all group-hover:border-white/30 backdrop-blur-xl">
+                <div class="flex items-center gap-5">
+                    <svg class="w-5 h-5 text-[#1fa3de]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <span class="text-sm font-bold text-white/50 tracking-tight">Press <kbd class="px-2 py-1 bg-white/10 rounded-md border border-white/20 text-white/80 text-[10px]">CMD</kbd> <kbd class="px-2 py-1 bg-white/10 rounded-md border border-white/20 text-white/80 text-[10px]">K</kbd> to launch...</span>
+                </div>
+                <div class="w-10 h-10 bg-[#1fa3de] rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#1fa3de]/40 group-hover:scale-110 transition-transform">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Right Sidebar: Inspector/Props -->
+    <div class="hidden xl:flex absolute right-8 top-40 bottom-8 w-64 border-l border-white/5 flex-col p-8 opacity-0 animate-fade-in-right z-20" style="animation-delay: 0.8s;">
+        <span class="text-[9px] text-white/30 uppercase tracking-[0.3em] mb-10 font-black">Inspector_Panel</span>
+        
+        <div class="space-y-10">
+            <div class="space-y-3">
+                <span class="text-[9px] text-white/40 uppercase tracking-widest font-black">Current_Build</span>
+                <div class="flex items-center gap-3">
+                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]"></div>
+                    <span class="text-[11px] text-white font-black tracking-tight uppercase">v2.4.0_Stable</span>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <span class="text-[9px] text-white/40 uppercase tracking-widest font-black">Strategic_Focus</span>
+                <div class="space-y-2">
+                    <div class="text-[11px] text-[#1fa3de] font-black bg-[#1fa3de]/5 p-3 rounded-xl border border-[#1fa3de]/20 flex justify-between items-center">
+                        AI_MODELS
+                        <span class="text-[9px] opacity-50">01</span>
+                    </div>
+                    <div class="text-[11px] text-white/80 font-black bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
+                        PRODUCT_ENGINE
+                        <span class="text-[9px] opacity-50">02</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-10 mt-auto border-t border-white/5">
+                <div class="text-[8px] text-white/20 uppercase mb-3 tracking-[0.2em]">Build_Timestamp</div>
+                <div class="text-[10px] text-white/40 font-mono italic">2026.04.24_14:02_UTC</div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<style>
+    @keyframes fade-in-left {
+        from { opacity: 0; transform: translateX(-60px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fade-in-right {
+        from { opacity: 0; transform: translateX(60px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(60px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .animate-fade-in-left { animation: fade-in-left 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fade-in-right { animation: fade-in-right 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fade-in-up { animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-fade-in { animation: fade-in 1s ease-out forwards; }
+</style>

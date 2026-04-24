@@ -1,0 +1,89 @@
+---
+import { getStaticPaths, useTranslations, type Lang } from "../../utils/i18n";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Hero from "../../components/Hero.astro";
+import Footer from "../../components/Footer.astro";
+import TechStack from "../../components/TechStack";
+import Projects from "../../components/Projects.astro";
+import Services from "../../components/Services";
+import ContactForm from "../../components/ContactForm";
+import AboutNew from "../../components/AboutNew.astro";
+
+export { getStaticPaths };
+
+const { lang } = Astro.params as { lang: Lang };
+const t = useTranslations(lang);
+---
+
+<Layout
+	title={`David | ${lang === 'es' ? 'Ingeniero de Software & AI Builder' : 'Software Engineer & AI Builder'}`}
+	description={t('hero.subtitle')}
+>
+	<Navbar lang={lang} />
+	<main class="overflow-hidden bg-[#050505]">
+		<Hero lang={lang} />
+
+		<AboutNew lang={lang} />
+
+		<Services client:load lang={lang} />
+
+		<section
+			id="stack"
+			class="py-32 bg-[#050505] scroll-mt-20 relative border-b border-white/5"
+		>
+			<div class="container mx-auto px-10">
+				<div class="max-w-4xl mb-24 space-y-6">
+					<div class="flex items-center gap-4 text-[#1fa3de]">
+						<span class="text-[10px] font-black tracking-[0.5em] uppercase opacity-70">TECHNICAL_STACK // TOOLS</span>
+						<div class="flex-grow h-[1px] bg-white/10"></div>
+					</div>
+					<h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
+						Herramientas <br/>
+						<span class="text-white/40 italic">Para la Excelencia</span>
+					</h2>
+				</div>
+				<TechStack client:load lang={lang} />
+			</div>
+		</section>
+
+		<section
+			id="projects"
+			class="py-32 bg-[#050505] scroll-mt-20 relative overflow-hidden border-b border-white/5"
+		>
+			<div class="container mx-auto px-10 relative z-10">
+				<div class="max-w-4xl mb-24 space-y-6">
+					<div class="flex items-center gap-4 text-[#1fa3de]">
+						<span class="text-[10px] font-black tracking-[0.5em] uppercase opacity-70">PORTFOLIO // CASE_STUDIES</span>
+						<div class="flex-grow h-[1px] bg-white/10"></div>
+					</div>
+					<h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
+						Soluciones <br/>
+						<span class="text-white/40 italic">Que Definen Mi Carrera</span>
+					</h2>
+				</div>
+				<Projects lang={lang} />
+			</div>
+		</section>
+
+		<section
+			id="contact"
+			class="py-32 bg-[#050505] scroll-mt-20 border-b border-white/5"
+		>
+			<div class="container mx-auto px-10">
+				<div class="max-w-4xl mb-24 space-y-6">
+					<div class="flex items-center gap-4 text-[#1fa3de]">
+						<span class="text-[10px] font-black tracking-[0.5em] uppercase opacity-70">CONTACT_PROTOCOL // SYNC</span>
+						<div class="flex-grow h-[1px] bg-white/10"></div>
+					</div>
+					<h2 class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none uppercase">
+						Hablemos de Tu <br/>
+						<span class="text-white/40 italic">Próximo Gran Proyecto</span>
+					</h2>
+				</div>
+				<ContactForm client:load lang={lang} />
+			</div>
+		</section>
+	</main>
+	<Footer lang={lang} />
+</Layout>

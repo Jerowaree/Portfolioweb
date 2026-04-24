@@ -1,0 +1,96 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Builder",
+    "projects": "Solutions",
+    "stack": "Tech Stack",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Software Engineer & AI Builder",
+    "title": "Architecting intelligent systems for the ",
+    "titleAccent": "real world.",
+    "subtitle": "Specialized in transforming complex problems into scalable products. I don't just write code; I design solutions that drive business value.",
+    "cta": "Explore solutions",
+    "secondary": "Let's Talk"
+  },
+  "about": {
+    "title": "A Builder's Mindset",
+    "subtitle": "Where others see code, I see systems.",
+    "description1": "My approach is not academic; it's execution-driven. I specialize in the intersection of product design and robust engineering.",
+    "description2": "From user experience design to AI-powered backend architecture, I build with the goal of scaling and generating real impact."
+  },
+  "stack": {
+    "title": "Technical Stack",
+    "subtitle": "For Excellence",
+    "explorer": "File Explorer",
+    "frontend": {
+      "title": "Product Engineering",
+      "description": "Specialized in high-performance interfaces. Focus on modular architectures, load speed, and a user experience that drives retention.",
+      "category": "Frontend & UI/UX"
+    },
+    "backend": {
+      "title": "Systems Architecture",
+      "description": "Design of scalable infrastructures and robust APIs. Efficient data handling and business-critical server logic.",
+      "category": "Backend & Infrastructure"
+    },
+    "ai": {
+      "title": "AI Intelligence",
+      "description": "Strategic integration of language models and intelligent automation to solve problems that were previously impossible.",
+      "category": "LLMs & Automation"
+    }
+  },
+  "services": {
+    "title": "Capabilities",
+    "subtitle": "Strategic Engineering",
+    "outcome": "Expected Outcome",
+    "cta": "Initialize Discovery",
+    "lead": {
+      "title": "Ready to scale your next product?",
+      "subtitle": "I design technical solutions that don't just work, they dominate the market. Let's talk about how I can bring real value to your business.",
+      "cta": "Schedule Technical Consultancy"
+    }
+  },
+  "projects": {
+    "title": "Solutions",
+    "subtitle": "Defining My Career",
+    "featured": "Featured Deployment",
+    "impact": "Validated Impact",
+    "analyze": "Analyze"
+  },
+  "contact": {
+    "title": "Send Message",
+    "subtitle": "Let's Talk About Your Next Great Project",
+    "status": {
+      "idle": "AWAITING_INPUT",
+      "completed": "COMPLETED",
+      "encrypted": "ENCRYPTED"
+    },
+    "prompts": {
+      "name": "IDENTIFY YOURSELF:",
+      "email": "WHERE CAN I REACH YOU? (EMAIL):",
+      "message": "DEFINE PROJECT_SCOPE / MESSAGE:"
+    },
+    "logs": {
+      "init": "[SYS]: INITIALIZING_SECURE_CHANNEL...",
+      "ready": "[SYS]: READY_FOR_INPUT",
+      "error": "[ERROR]: REQUIRED",
+      "validated": "[OK]: VALIDATED",
+      "sending": "[SYS]: EXECUTING_SEND_PROTOCOL...",
+      "success": "TRANSMISSION_COMPLETE",
+      "successSub": "Your request has been successfully deployed. I will respond within the next 24 business cycles."
+    },
+    "cta": "Execute Connection Sequence"
+  },
+  "footer": {
+    "nav_mapping": "Navigation Mapping",
+    "endpoints": "Connection Endpoints",
+    "stats": "Runtime Statistics",
+    "version": "Build Version",
+    "uptime_label": "Service Uptime",
+    "license_label": "System License",
+    "uptime": "99.99% ACCURACY",
+    "license": "MIT_X11_LICENSE",
+    "built": "Built with Astro & React"
+  }
+}
