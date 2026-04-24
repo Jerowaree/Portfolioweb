@@ -4,131 +4,149 @@ import cineboxImage from "../assets/cinebox.jpeg";
 import medicpageImage from "../assets/medicpage.png";
 import nextfitImage from "../assets/nextfit.png";
 import iubiplayImage from "../assets/iubiplay.png";
+import mmImage from "../assets/mm.png";
 
 const projects = [
-    {
-        title: "Scars - Taller Mecánico",
-        description:
-            "Sitio web profesional para un taller mecánico. Integración de IA para asistencia al cliente incluyendo un sistema de gestión de solicitudes",
-        image: scarsImage.src,
-        tags: ["React", "Vite", "Express", "OpenAI API"],
-        link: "https://scarsperu.com",
-    },
-    {
-        title: "Cinebox - Plataforma de Películas",
-        description:
-            "Aplicación de gestión y catálogo de películas. Arquitectura robusta y escalable con un backend modular y tipado estático.",
-        image: cineboxImage.src,
-        tags: ["React", "TypeScript", "NestJS"],
-    },
-    {
-        title: "MedicPage - Gestión Médica",
-        description:
-            "Sistema integral de agendamiento de citas médicas. Proyecto académico que gestiona horarios, doctores y pacientes de manera eficiente.",
-        image: medicpageImage.src,
-        tags: ["React", "Vite", "Laravel"],
-    },
-    {
-        title: "Nextfit - Gestión de Gimnasios",
-        description:
-            "Plataforma de administración para gimnasios que centraliza membresías, control de asistencia y cobros recurrentes con dashboards en tiempo real.",
-        image: nextfitImage.src,
-        tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "Mercado Pago"],
-        link: "https://nextfitoficial.com",
-    },
-    {
-        title: "Iubiplay - Plataforma Educativa",
-        description:
-            "Plataforma educativa que reúne juegos educativos para el aprendizaje interactivo. Desarrollada con Next.js, Supabase y TypeScript.",
-        image: iubiplayImage.src,
-        tags: ["Next.js", "Supabase", "TypeScript", "Google OAuth"],
-        link: "https://iubi-play.vercel.app/",
-    },
+  {
+    title: "Scars - Taller Mecánico",
+    description:
+      "Sitio web profesional para un taller mecánico. Integración de IA para asistencia al cliente incluyendo un sistema de gestión de solicitudes",
+    image: scarsImage.src,
+    tags: ["React", "Vite", "Express", "OpenAI API"],
+    link: "https://scarsperu.com",
+  },
+  {
+    title: "Cinebox - Plataforma de Películas",
+    description:
+      "Aplicación de gestión y catálogo de películas. Arquitectura robusta y escalable con un backend modular y tipado estático.",
+    image: cineboxImage.src,
+    tags: ["React", "TypeScript", "NestJS"],
+  },
+  {
+    title: "MedicPage - Gestión Médica",
+    description:
+      "Sistema integral de agendamiento de citas médicas. Proyecto académico que gestiona horarios, doctores y pacientes de manera eficiente.",
+    image: medicpageImage.src,
+    tags: ["React", "Vite", "Laravel"],
+  },
+  {
+    title: "Nextfit - Gestión de Gimnasios",
+    description:
+      "Plataforma de administración para gimnasios que centraliza membresías, control de asistencia y cobros recurrentes con dashboards en tiempo real.",
+    image: nextfitImage.src,
+    tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "Mercado Pago"],
+    link: "https://nextfitoficial.com",
+  },
+  {
+    title: "Iubiplay - Plataforma Educativa",
+    description:
+      "Plataforma educativa que reúne juegos educativos para el aprendizaje interactivo. Desarrollada con Next.js, Supabase y TypeScript.",
+    image: iubiplayImage.src,
+    tags: ["Next.js", "Supabase", "TypeScript", "Google OAuth"],
+    link: "https://iubi-play.vercel.app/",
+  },
+  {
+    title: "Master Manager - Gestión para PYMEs",
+    description:
+      "Sistema de gestión empresarial que centraliza el control de caja, ventas, egresos, almacén y productos, optimizando la operatividad de pequeños y medianos negocios.",
+    image: mmImage.src,
+    tags: ["TypeScript", "Next.js", "NestJS", "Tailwind CSS"],
+    link: "https://www.mastermanageroficial.com",
+  },
 ];
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12 xl:gap-14 py-6">
-    {projects.map((project, idx) => (
-        <div
-            class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-2xl hover:shadow-[#1fa3de]/20 transition-all duration-300 flex flex-col h-full hover:-translate-y-2 max-w-xl mx-auto w-full relative"
-            style={`animation: fadeInUp 0.5s ${0.1 * idx + 0.2}s both;`}
-        >
-            <div class="relative h-56 overflow-hidden flex items-center justify-center bg-gradient-to-tr from-[#e0f2fe] to-[#f8fafc] dark:from-slate-800 dark:to-slate-900">
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    class="w-full h-full object-contain scale-95 group-hover:scale-105 transition-transform duration-500 drop-shadow-xl"
-                    loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10 pointer-events-none" />
-            </div>
-            <div class="p-7 flex flex-col flex-grow">
-                <h3 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 group-hover:text-[#1fa3de] transition-colors">
-                    {project.title}
-                </h3>
-                <p class="text-slate-600 dark:text-slate-200 text-base leading-relaxed mb-5 flex-grow">
-                    {project.description}
-                </p>
-                <div class="flex flex-wrap gap-2 mb-7">
-                    {project.tags.map((tag) => (
-                        <span class="px-3 py-1 bg-[#e0f2fe] dark:bg-slate-800 text-[#1fa3de] dark:text-slate-100 text-xs font-semibold rounded-full border border-[#b6e0fe] dark:border-slate-700 group-hover:border-[#1fa3de]/40 transition-colors">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-                <div class="mt-auto space-y-3">
-                    {project.link && (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-full border border-[#1fa3de] text-[#1fa3de] dark:text-white py-3 px-6 rounded-xl text-base font-bold text-center hover:bg-[#1fa3de]/10 transition-all flex items-center justify-center gap-2 group/link"
-                        >
-                            <span>Ver proyecto</span>
-                            <svg
-                                class="w-5 h-5 transform group-hover/link:translate-x-1 transition-transform"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                            </svg>
-                        </a>
-                    )}
-                    <a
-                        href="#contact"
-                        class="w-full bg-[#1fa3de] text-white py-3 px-6 rounded-xl text-base font-bold text-center hover:bg-[#1fa3de]/90 transition-all shadow-lg shadow-[#1fa3de]/20 hover:shadow-[#1fa3de]/40 flex items-center justify-center gap-2 group/btn"
-                    >
-                        <span>Me interesa / Consultar</span>
-                        <svg
-                            class="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"
-                            />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12 xl:gap-14 py-6"
+>
+  {
+    projects.map((project, idx) => (
+      <div
+        class="group bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg hover:shadow-2xl hover:shadow-[#1fa3de]/20 transition-all duration-300 flex flex-col h-full hover:-translate-y-2 max-w-xl mx-auto w-full relative"
+        style={`animation: fadeInUp 0.5s ${0.1 * idx + 0.2}s both;`}
+      >
+        <div class="relative h-56 overflow-hidden flex items-center justify-center bg-gradient-to-tr from-[#e0f2fe] to-[#f8fafc] dark:from-slate-800 dark:to-slate-900">
+          <img
+            src={project.image}
+            alt={project.title}
+            class="w-full h-full object-contain scale-95 group-hover:scale-105 transition-transform duration-500 drop-shadow-xl"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent z-10 pointer-events-none" />
         </div>
-    ))}
+        <div class="p-7 flex flex-col flex-grow">
+          <h3 class="text-2xl font-extrabold text-slate-800 dark:text-white mb-2 group-hover:text-[#1fa3de] transition-colors">
+            {project.title}
+          </h3>
+          <p class="text-slate-600 dark:text-slate-200 text-base leading-relaxed mb-5 flex-grow">
+            {project.description}
+          </p>
+          <div class="flex flex-wrap gap-2 mb-7">
+            {project.tags.map((tag) => (
+              <span class="px-3 py-1 bg-[#e0f2fe] dark:bg-slate-800 text-[#1fa3de] dark:text-slate-100 text-xs font-semibold rounded-full border border-[#b6e0fe] dark:border-slate-700 group-hover:border-[#1fa3de]/40 transition-colors">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div class="mt-auto space-y-3">
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full border border-[#1fa3de] text-[#1fa3de] dark:text-white py-3 px-6 rounded-xl text-base font-bold text-center hover:bg-[#1fa3de]/10 transition-all flex items-center justify-center gap-2 group/link"
+              >
+                <span>Ver proyecto</span>
+                <svg
+                  class="w-5 h-5 transform group-hover/link:translate-x-1 transition-transform"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            )}
+            <a
+              href="#contact"
+              class="w-full bg-[#1fa3de] text-white py-3 px-6 rounded-xl text-base font-bold text-center hover:bg-[#1fa3de]/90 transition-all shadow-lg shadow-[#1fa3de]/20 hover:shadow-[#1fa3de]/40 flex items-center justify-center gap-2 group/btn"
+            >
+              <span>Me interesa / Consultar</span>
+              <svg
+                class="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    ))
+  }
 </div>
 
 <style>
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>
